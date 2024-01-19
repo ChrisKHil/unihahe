@@ -13,25 +13,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <div class="tilegrid-container">
-    <ion-card class="tilegrid-item" *ngFor="let item of fridgeItems">
-      <ion-card-content>
-        <p>
-          <ion-text>{{item.name}}</ion-text>
-        </p>
-        <p>
-          <ion-text>{{item.quantity}} {{item.unit}}</ion-text>
-        </p>
-        <p>
-          <ion-text>{{item.expiry}}</ion-text>
-        </p>
-      </ion-card-content>
 
-    </ion-card>
-    <ion-card class="tilegrid-item">
-      <div class="tilegrid-add">
-        <ion-icon class="tilegrid-image" name="add-circle-outline" (click)="addItem()"></ion-icon>
-      </div>
-    </ion-card>
-  </div>
+  <app-tilegrid [items]="fridgeItems" [displayProperties]="['name', 'quantity', 'expiry' ]"></app-tilegrid>
 </ion-content>

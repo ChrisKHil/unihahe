@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FoodItem } from '../components/tilegrid/tilegrid.component';
 
 @Component({
   selector: 'app-tab1',
@@ -8,22 +9,14 @@ import { Component } from '@angular/core';
 export class Tab1Page {
 
   fridgeItems: FoodItem[] = [
-    {name: 'Milk', quantity: 1, unit: 'litre', expiry: '2020-05-01'},
-    {name: 'Eggs', quantity: 12, unit: 'units', expiry: '2020-05-01'},
-    {name: 'Bread', quantity: 1, unit: 'loaf', expiry: '2020-05-01'}
+    {name: 'Milk', quantity: '1 litre', expiry: '2020-05-01'},
+    {name: 'Eggs', quantity: '12 pcs', expiry: '2020-05-01'},
+    {name: 'Bread', quantity: '1 loaf', expiry: '2020-05-01'}
   ]
 
   constructor() {}
 
   public addItem() {
-
   }
 
-}
-
-export interface FoodItem {
-  name: string;
-  quantity: number;
-  unit?: string;
-  expiry?: string;
 }

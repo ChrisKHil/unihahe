@@ -1,0 +1,16 @@
+<div class="tilegrid-container">
+  <ion-card class="tilegrid-item" *ngFor="let item of items">
+    <ion-card-content>
+      <p *ngFor="let property of displayProperties">
+        <ion-text>{{item[property]}}</ion-text>
+      </p>
+
+    </ion-card-content>
+
+  </ion-card>
+  <ion-card class="tilegrid-item">
+    <div class="tilegrid-add">
+      <ion-icon class="tilegrid-image" name="add-circle-outline" (click)="addItem()"></ion-icon>
+    </div>
+  </ion-card>
+</div>
