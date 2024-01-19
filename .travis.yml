@@ -1,15 +1,21 @@
 language: node_js
 node_js:
- — “20”
+  - "20.11.0"
 branches:
- only:
- — main
- - PROD
+  only:
+    - main
+    - PROD
 before_script:
- — npm install -g ionic
- — npm ci
+  - sh -e /etc/init.d/xvfb start
+before_install:
+  - npm i -g npm@10.2.4
+  - npm install -g @angular/cli
+  - npm install -g ionic
+  - npm ci
 script:
- — ionic build --prod -- --base-href ./
+  - npm run lint
+  - npm run test -- --watch=false
+  - ionic build --prod -- --base-href ./
 deploy:
  provider: pages
  skip-cleanup: true
