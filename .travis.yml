@@ -12,10 +12,9 @@ env:
     - CHROME_BIN=chromium-browser
 before_script:
   - sh -e /etc/init.d/xvfb start
-install:
-  - npm
+before_install:
+  - npm i -g npm@10.2.4
 script:
-  - npm install
   - npm run lint
   - npm run test -- --watch=false
 cache: npm
