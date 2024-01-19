@@ -1,21 +1,20 @@
-dist: trusty
-sudo: required
 language: node_js
 node_js:
-  - "20"
-os:
-  - linux
-env:
-  global:
-    - DBUS_SESSION_BUS_ADDRESS=/dev/null
-    - DISPLAY=:99.0
-    - CHROME_BIN=chromium-browser
+ — “20”
+branches:
+ only:
+ — main
+ - PROD
 before_script:
-  - sh -e /etc/init.d/xvfb start
-before_install:
-  - npm i -g npm@10.2.4
+ — npm install -g ionic
+ — npm ci
 script:
-  - npm i
-  - npm run lint
-  - npm run test -- --watch=false
-cache: npm
+ — ionic build --prod -- --base-href ./
+deploy:
+ provider: pages
+ skip-cleanup: true
+ github-token: $GITHUB_TOKEN
+ keep-history: true
+ on:
+   branch: main
+ local_dir: www
