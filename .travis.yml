@@ -13,8 +13,7 @@ before_script:
   - npm install -g @angular/cli
   - npm install -g ionic
   - npm ci
-  - export display=:99.0
-  - sh -e /etc/init.d/xvfb start
+  # - export display=:99.0
 script:
   - npm run lint
   # - npm run test -- --watch=false
