@@ -1,6 +1,9 @@
+dist: jammy
 language: node_js
 node_js:
   - "20.11.0"
+os:
+  - linux
 branches:
   only:
     - main
