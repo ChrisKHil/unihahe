@@ -9,12 +9,12 @@ branches:
     - main
     - PROD
 before_script:
-  - sh -e /etc/init.d/xvfb start
   - npm i -g npm@10.2.4
   - npm install -g @angular/cli
   - npm install -g ionic
   - npm ci
   - export display=:99.0
+  - sh -e /etc/init.d/xvfb start
 script:
   - npm run lint
   # - npm run test -- --watch=false
