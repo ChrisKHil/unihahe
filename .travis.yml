@@ -19,10 +19,11 @@ script:
   # - npm run test -- --watch=false
   - ionic build --prod -- --base-href ./
 deploy:
- provider: pages
+ provider: releases
+ api_key: $GITHUB_TOKEN
+ file: www
  skip-cleanup: true
  github-token: $GITHUB_TOKEN
  keep-history: true
  on:
-   branch: main
- local_dir: www
+   tags: true
